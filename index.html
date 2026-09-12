@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Philopatrick's personal blog — notes, ideas, and things worth remembering."
+      content="Philopatrick's public notebook on attention, language, quiet tools, and the human condition."
     />
-    <meta name="theme-color" content="#f4f0e8" />
-    <meta property="og:title" content="Philopatrick — Notes from the edges" />
+    <meta name="theme-color" content="#eeeae1" />
+    <meta property="og:title" content="Philopatrick — A quiet record of thought" />
     <meta
       property="og:description"
-      content="Notes, ideas, and things worth remembering."
+      content="Essays on attention, language, quiet tools, and the human condition."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://blog.philopatrick.site/" />
-    <title>Philopatrick — Notes from the edges</title>
+    <title>Philopatrick — A quiet record of thought</title>
     <link rel="canonical" href="https://blog.philopatrick.site/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
     <script>
       try {
@@ -36,137 +30,128 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <a class="brand" href="#/" aria-label="Philopatrick home">
-        <span class="brand-mark">P</span>
-        <span>philopatrick</span>
-      </a>
+      <div class="header-inner page-shell">
+        <a class="brand" href="#/" aria-label="Philopatrick home">
+          <span class="brand-name">Philopatrick</span>
+          <span class="brand-note">a notebook in public</span>
+        </a>
 
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#/" data-route="home">Notes</a>
-        <a href="#/archive" data-route="archive">Archive</a>
-        <a href="#/about" data-route="about">About</a>
-      </nav>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#/" data-route="home">Index</a>
+          <a href="#/archive" data-route="archive">Archive</a>
+          <a href="#/about" data-route="about">About</a>
+        </nav>
 
-      <button class="theme-toggle" type="button" aria-label="Switch color theme">
-        <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-        </svg>
-        <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-        </svg>
-      </button>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme">
+          <span class="theme-light-label">Night</span>
+          <span class="theme-dark-label">Day</span>
+        </button>
+      </div>
     </header>
 
     <main id="main">
       <section id="home-view" class="view" data-view="home">
-        <div class="hero page-shell">
-          <p class="eyebrow"><span></span> A personal corner of the web</p>
-          <h1>Notes from<br />the <em>edges.</em></h1>
-          <div class="hero-foot">
-            <p>
-              Ideas, observations, and things worth remembering—written by
-              Philopatrick.
-            </p>
-            <a class="round-link" href="#latest" aria-label="Read the latest notes">
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M12 5v14M6 13l6 6 6-6"></path>
-              </svg>
-            </a>
+        <header class="hero page-shell">
+          <div class="hero-rail" aria-hidden="true">
+            <span>01</span>
+            <i></i>
+            <span>03</span>
           </div>
-        </div>
-
-        <section class="pinned-wrap page-shell" aria-labelledby="pinned-title">
-          <div class="section-heading">
-            <div>
-              <p class="section-kicker">Start here</p>
-              <h2 id="pinned-title">Pinned notes</h2>
+          <div class="hero-copy">
+            <p class="eyebrow">Humanities <span>×</span> systems</p>
+            <h1>Notes for keeping<br />a mind <em>intact.</em></h1>
+            <div class="hero-foot">
+              <p class="hero-deck">
+                Essays on attention, language, quiet tools, and the structures
+                that let a human life remain coherent.
+              </p>
+              <a href="#latest">Enter the notebook <span aria-hidden="true">↓</span></a>
             </div>
-            <span class="pin-label">TOP <span>↗</span></span>
           </div>
-          <div id="pinned-posts" class="pinned-grid"></div>
+        </header>
+
+        <section class="selected-wrap page-shell" aria-labelledby="selected-title">
+          <header class="section-heading">
+            <div>
+              <p class="section-number">01 / Selected</p>
+              <h2 id="selected-title">Begin here</h2>
+            </div>
+            <p class="section-note">Two notes that hold the centre.</p>
+          </header>
+          <div id="pinned-posts" class="selected-list"></div>
         </section>
 
         <section id="latest" class="latest-wrap page-shell" aria-labelledby="latest-title">
-          <div class="section-heading latest-heading">
+          <header class="section-heading latest-heading">
             <div>
-              <p class="section-kicker">The notebook</p>
-              <h2 id="latest-title">Latest notes</h2>
+              <p class="section-number">02 / Notebook</p>
+              <h2 id="latest-title">All notes</h2>
             </div>
             <label class="search-box">
-              <span class="sr-only">Search posts</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-              <input id="post-search" type="search" placeholder="Search notes" autocomplete="off" />
+              <span>Find</span>
+              <input id="post-search" type="search" placeholder="a word or idea" autocomplete="off" />
             </label>
-          </div>
+          </header>
           <div id="tag-filters" class="tag-filters" aria-label="Filter posts by tag"></div>
           <div id="post-list" class="post-list" aria-live="polite"></div>
-          <p id="empty-state" class="empty-state" hidden>No notes found. Try another tag or search.</p>
+          <p id="empty-state" class="empty-state" hidden>Nothing here yet. Try another word.</p>
         </section>
       </section>
 
       <section id="archive-view" class="view page-shell inner-page" data-view="archive" hidden>
         <header class="page-intro">
-          <p class="eyebrow"><span></span> Everything, in order</p>
-          <h1>Archive</h1>
-          <p>A timeline of notes, experiments, and thoughts.</p>
+          <p class="section-number">Archive / Chronological</p>
+          <h1>Everything,<br /><em>kept.</em></h1>
+          <p>A plain chronology of finished thoughts. No feed, no urgency.</p>
         </header>
         <div id="archive-timeline" class="timeline"></div>
       </section>
 
       <section id="about-view" class="view page-shell inner-page" data-view="about" hidden>
         <header class="page-intro about-intro">
-          <p class="eyebrow"><span></span> A little context</p>
-          <h1>About me</h1>
+          <p class="section-number">About / Position</p>
+          <h1>Humanities<br /><em>&amp; systems.</em></h1>
         </header>
         <div class="about-grid">
-          <div class="about-monogram" aria-hidden="true">
-            <span>P</span>
-            <i></i>
-          </div>
+          <p class="about-aside">Technology should become a quiet scaffold for human flourishing—not another object demanding attention.</p>
           <div class="about-copy">
             <p class="about-lead">
-              An intellectual of the humanities and systems — exploring the human condition, quiet tools, and the scaffolds of thought.
+              I am interested in the human condition and in the structures that make thought possible.
             </p>
-            <blockquote>
+            <blockquote lang="zh-CN">
               “思考的内容物是独立于思考的表达物的……精神的外化是非常重要的，世界的精神等价物便是语言。简单也许是一种高级。”
             </blockquote>
             <p>
-              To me, technology is never an end in itself; it is an externalized scaffold for human flourishing, memory, and reflection. I work at the intersection of humanistic curiosity and systems engineering, fascinated by how external structures shape our inner life.
+              Philosophy, literature, consciousness, distributed systems, memory architecture: to me these are not separate territories. They meet wherever an inner life depends on an outer form.
             </p>
             <p>
-              Living with finite working memory, I resist noisy interruptions, dopamine-trapping algorithms, and bloated interfaces. I believe deeply in quiet tools, linear flow, and tactile permanence.
+              I care about finite working memory, linear flow, tactile permanence, and tools that disappear into use. This site is a public notebook for ideas that have survived long enough to deserve a stable address.
             </p>
-            <p>
-              This site is a calm notebook in public: a home for crystallized thoughts, reading digests, and architectural observations that deserve more space than a fleeting thought.
-            </p>
-            <div class="contact-card">
-              <span>Want to say hello?</span>
-              <a href="mailto:philopatrick@icloud.com">philopatrick@icloud.com <b>↗</b></a>
-            </div>
+            <a class="contact-link" href="mailto:philopatrick@icloud.com">
+              <span>Correspondence</span>
+              <strong>philopatrick@icloud.com ↗</strong>
+            </a>
           </div>
         </div>
       </section>
 
-      <article id="article-view" class="view article-view" data-view="article" hidden>
+      <article id="article-view" class="view article-view" data-view="article" lang="zh-CN" hidden>
         <div class="article-shell">
-          <a class="back-link" href="#/">
-            <span>←</span> Back to notes
-          </a>
+          <a class="back-link" href="#/"><span>←</span> Index</a>
           <header class="article-header">
             <div id="article-tags" class="article-tags"></div>
             <h1 id="article-title"></h1>
             <p id="article-excerpt" class="article-excerpt"></p>
             <div class="article-meta">
               <span id="article-date"></span>
-              <span class="meta-dot"></span>
+              <span aria-hidden="true">/</span>
               <span id="article-reading-time"></span>
             </div>
           </header>
           <div id="article-body" class="article-body"></div>
           <footer class="article-footer">
-            <p>Thanks for reading.</p>
-            <a href="mailto:philopatrick@icloud.com">Continue the conversation ↗</a>
+            <p>End of note.</p>
+            <a href="mailto:philopatrick@icloud.com">Write back ↗</a>
           </footer>
         </div>
       </article>
@@ -174,16 +159,13 @@
 
     <footer class="site-footer">
       <div class="page-shell footer-inner">
-        <div>
-          <span class="footer-mark">P</span>
-          <p>Made thoughtfully by Philopatrick.</p>
-        </div>
+        <p>Philopatrick</p>
+        <p>A quiet record of thought.</p>
         <div class="footer-links">
           <a href="mailto:philopatrick@icloud.com">Email</a>
           <a href="https://github.com/philopatrick" rel="me">GitHub</a>
-          <a href="#/archive">Archive</a>
         </div>
-        <p class="copyright">© <span id="current-year"></span> Philopatrick</p>
+        <p class="copyright">© <span id="current-year"></span></p>
       </div>
     </footer>
 

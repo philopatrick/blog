@@ -36,19 +36,19 @@
     pinnedContainer.innerHTML = pinnedPosts
       .map(
         (post, index) => `
-          <a class="pinned-card accent-${escapeHtml(post.accent)}" href="#/post/${encodeURIComponent(post.id)}">
+          <a class="selected-card" href="#/post/${encodeURIComponent(post.id)}">
             <div class="card-number">0${index + 1}</div>
             <div class="card-content">
+              <div class="card-title">
+                <div class="tag-row">${tagsMarkup(post.tags)}</div>
+                <h3>${escapeHtml(post.title)}</h3>
+                <p>${escapeHtml(post.excerpt)}</p>
+              </div>
               <div class="card-meta">
                 <time datetime="${post.date}">${formatDate(post.date)}</time>
                 <span>${escapeHtml(post.readingTime)}</span>
               </div>
-              <h3>${escapeHtml(post.title)}</h3>
-              <p>${escapeHtml(post.excerpt)}</p>
-              <div class="card-bottom">
-                <div class="tag-row">${tagsMarkup(post.tags)}</div>
-                <span class="card-arrow" aria-hidden="true">↗</span>
-              </div>
+              <span class="card-arrow" aria-hidden="true">↗</span>
             </div>
           </a>
         `,
@@ -57,12 +57,20 @@
   }
 
   function renderFilters() {
-    const allTags = [...new Set(posts.flatMap((post) => post.tags))].sort();
-    filters.innerHTML = ["all", ...allTags]
+    const tagCounts = posts.flatMap((post) => post.tags).reduce((counts, tag) => {
+      counts[tag] = (counts[tag] || 0) + 1;
+      return counts;
+    }, {});
+    const recurringTags = Object.entries(tagCounts)
+      .filter(([, count]) => count > 1)
+      .sort(([tagA], [tagB]) => tagA.localeCompare(tagB))
+      .map(([tag]) => tag);
+
+    filters.innerHTML = ["all", ...recurringTags]
       .map(
         (tag) => `
           <button type="button" class="filter-chip${state.tag === tag ? " is-active" : ""}" data-tag="${escapeHtml(tag)}">
-            ${tag === "all" ? "All notes" : `#${escapeHtml(tag)}`}
+            ${tag === "all" ? "All" : escapeHtml(tag)}
           </button>
         `,
       )
@@ -81,17 +89,15 @@
       .map(
         (post) => `
           <a class="post-row" href="#/post/${encodeURIComponent(post.id)}">
-            <time datetime="${post.date}">
-              <strong>${formatDate(post.date, { day: "2-digit" }).split(" ")[1].replace(",", "")}</strong>
-              <span>${formatDate(post.date, { month: "short" }).split(" ")[0]}</span>
-              <small>${new Date(`${post.date}T00:00:00Z`).getUTCFullYear()}</small>
-            </time>
             <div class="post-summary">
               <div class="tag-row">${tagsMarkup(post.tags)}</div>
               <h3>${escapeHtml(post.title)}</h3>
               <p>${escapeHtml(post.excerpt)}</p>
             </div>
-            <span class="reading-time">${escapeHtml(post.readingTime)}</span>
+            <time datetime="${post.date}">
+              <strong>${formatDate(post.date, { month: "short", day: "2-digit", year: undefined })}</strong>
+              <span>${escapeHtml(post.readingTime)}</span>
+            </time>
             <span class="row-arrow" aria-hidden="true">↗</span>
           </a>
         `,
@@ -179,7 +185,7 @@
       document.title = "About — Philopatrick";
     } else {
       showView("home");
-      document.title = "Philopatrick — Notes from the edges";
+      document.title = "Philopatrick — A quiet record of thought";
     }
 
     window.scrollTo({ top: 0, behavior: "instant" });
