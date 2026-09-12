@@ -395,6 +395,7 @@ button { color: inherit; }
 .about-copy { padding-top: 1rem; }
 .about-copy > p { color: var(--muted); font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; }
 .about-copy .about-lead { margin-top: 0; color: var(--ink); font-size: clamp(2rem, 3vw, 3.2rem); line-height: 1.15; letter-spacing: -0.035em; }
+.about-copy blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.6rem; border-left: 2px solid var(--coral); color: var(--muted); font-family: var(--serif); font-size: 1.25rem; font-style: italic; line-height: 1.6; }
 .contact-card { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .contact-card span { display: block; margin-bottom: 0.75rem; color: var(--muted); font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; }
 .contact-card a { display: flex; justify-content: space-between; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.8rem); text-decoration: none; }
