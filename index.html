@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Philopatrick's personal blog — notes, ideas, and things worth remembering."
+    />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta property="og:title" content="Philopatrick — Notes from the edges" />
+    <meta
+      property="og:description"
+      content="Notes, ideas, and things worth remembering."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blog.philopatrick.site/" />
+    <title>Philopatrick — Notes from the edges</title>
+    <link rel="canonical" href="https://blog.philopatrick.site/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        const systemDark = matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = savedTheme || (systemDark ? "dark" : "light");
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#/" aria-label="Philopatrick home">
+        <span class="brand-mark">P</span>
+        <span>philopatrick</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#/" data-route="home">Notes</a>
+        <a href="#/archive" data-route="archive">Archive</a>
+        <a href="#/about" data-route="about">About</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Switch color theme">
+        <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main id="main">
+      <section id="home-view" class="view" data-view="home">
+        <div class="hero page-shell">
+          <p class="eyebrow"><span></span> A personal corner of the web</p>
+          <h1>Notes from<br />the <em>edges.</em></h1>
+          <div class="hero-foot">
+            <p>
+              Ideas, observations, and things worth remembering—written by
+              Philopatrick.
+            </p>
+            <a class="round-link" href="#latest" aria-label="Read the latest notes">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 5v14M6 13l6 6 6-6"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <section class="pinned-wrap page-shell" aria-labelledby="pinned-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Start here</p>
+              <h2 id="pinned-title">Pinned notes</h2>
+            </div>
+            <span class="pin-label">TOP <span>↗</span></span>
+          </div>
+          <div id="pinned-posts" class="pinned-grid"></div>
+        </section>
+
+        <section id="latest" class="latest-wrap page-shell" aria-labelledby="latest-title">
+          <div class="section-heading latest-heading">
+            <div>
+              <p class="section-kicker">The notebook</p>
+              <h2 id="latest-title">Latest notes</h2>
+            </div>
+            <label class="search-box">
+              <span class="sr-only">Search posts</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+              <input id="post-search" type="search" placeholder="Search notes" autocomplete="off" />
+            </label>
+          </div>
+          <div id="tag-filters" class="tag-filters" aria-label="Filter posts by tag"></div>
+          <div id="post-list" class="post-list" aria-live="polite"></div>
+          <p id="empty-state" class="empty-state" hidden>No notes found. Try another tag or search.</p>
+        </section>
+      </section>
+
+      <section id="archive-view" class="view page-shell inner-page" data-view="archive" hidden>
+        <header class="page-intro">
+          <p class="eyebrow"><span></span> Everything, in order</p>
+          <h1>Archive</h1>
+          <p>A timeline of notes, experiments, and thoughts.</p>
+        </header>
+        <div id="archive-timeline" class="timeline"></div>
+      </section>
+
+      <section id="about-view" class="view page-shell inner-page" data-view="about" hidden>
+        <header class="page-intro about-intro">
+          <p class="eyebrow"><span></span> A little context</p>
+          <h1>About me</h1>
+        </header>
+        <div class="about-grid">
+          <div class="about-monogram" aria-hidden="true">
+            <span>P</span>
+            <i></i>
+          </div>
+          <div class="about-copy">
+            <p class="about-lead">
+              Hello, I’m Philopatrick. This is my quiet place for ideas that deserve
+              more space than a passing thought.
+            </p>
+            <p>
+              I use this site as a public notebook: a home for what I’m learning,
+              making, noticing, and returning to. The subjects may change; curiosity
+              is the thread that holds them together.
+            </p>
+            <div class="contact-card">
+              <span>Want to say hello?</span>
+              <a href="mailto:philopatrick@icloud.com">philopatrick@icloud.com <b>↗</b></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article id="article-view" class="view article-view" data-view="article" hidden>
+        <div class="article-shell">
+          <a class="back-link" href="#/">
+            <span>←</span> Back to notes
+          </a>
+          <header class="article-header">
+            <div id="article-tags" class="article-tags"></div>
+            <h1 id="article-title"></h1>
+            <p id="article-excerpt" class="article-excerpt"></p>
+            <div class="article-meta">
+              <span id="article-date"></span>
+              <span class="meta-dot"></span>
+              <span id="article-reading-time"></span>
+            </div>
+          </header>
+          <div id="article-body" class="article-body"></div>
+          <footer class="article-footer">
+            <p>Thanks for reading.</p>
+            <a href="mailto:philopatrick@icloud.com">Continue the conversation ↗</a>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell footer-inner">
+        <div>
+          <span class="footer-mark">P</span>
+          <p>Made thoughtfully by Philopatrick.</p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:philopatrick@icloud.com">Email</a>
+          <a href="https://github.com/philopatrick" rel="me">GitHub</a>
+          <a href="#/archive">Archive</a>
+        </div>
+        <p class="copyright">© <span id="current-year"></span> Philopatrick</p>
+      </div>
+    </footer>
+
+    <script src="posts.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
